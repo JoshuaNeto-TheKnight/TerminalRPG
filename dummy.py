@@ -1,6 +1,6 @@
 import disfunction
+import random
 TheDream = disfunction.light()
-HP, PWR, DEF = disfunction.powerdice()
-TheDream = disfunction.statuscheck(HP, PWR, DEF)
+MAXHP, INIPWR, INIDEF = disfunction.powerdice()
 name = disfunction.welcome()
-result = disfunction.pathchoices()
+MAXHP = disfunction.pathchoices(disfunction.thugencounter(MAXHP, INIPWR, INIDEF), disfunction.nestencounter())

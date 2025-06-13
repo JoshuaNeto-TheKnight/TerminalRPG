@@ -1,10 +1,13 @@
+import random
+
 def light():
-    print("You find yourself in a void so dark, it burns your eyes, then, almost in an instant, a spark starts talking to you...")
+    print("/You find yourself in a void so dark, it burns your eyes, then, almost in an instant, a spark starts talking to you.../")
     print("I will be your guiding light, even in your lowest of lows, I shall shelter you.")
     print("Do you understand?")
-    print("-Answer the prompts with any highlighted letters", "[Y]es", "[N]o")
+    print("/Answer the prompts with any highlighted letters/", "[Y]es", "[N]o")
     choice = input()
     print("Good... Now... Tell about yourself:")
+
 def powerdice():
     HP = 50
     PWR = 2
@@ -61,10 +64,10 @@ def statuscheck(H, P, D):
 
 def welcome():
     print("Welcome to The City.")
-    print("Where you Face The Fear, and Build The Future.")
-    print("Now, what's your name, fresh blood?")
+    print("Where you Face The Fear, and Build The Future...?")
+    print("Argh, now thats unimportant. Now, what's your name, fresh blood?")
     name = input("Insert your nickname: ")
-    print("Ah, you seem unfamiliar with these streets, right?")
+    print("Ah, right... you seem familiar with these streets, right?")
     print("[Y]es.", "[N]o.")
     while True:
         choice = input()
@@ -80,19 +83,56 @@ def welcome():
     return name
 
 
-def pathchoices():
-    print("With that chit-chat over with, what path you will take?")
-    print("[B]ackstreets" , "[N]est")
+def pathchoices(choice1, choice2):
+    print("/With that chit-chat over with, what path you will take?/")
+    print("[L]eft" , "[R]ight")
     while True:
         choice = input()
-        if choice == "B":
-            Backstreets = thugencounter()
+        if choice == "L":
+            path = choice1
             break
-        elif choice == "N":
-            Nest = nestencounter()
+        elif choice == "R":
+            path = choice2
             break
 
+def dmgform(PWR):
+    DMG = random.randrange(1,PWR)
+    DMG = int(DMG)
+    return DMG
 
-def thugencounter():
-    print("You walk out of the Nest, with only gray-smoke buildings and a heavy mist above you drowing your view of the sky.")
-    print("Then suddenly, you feel footsteps on your ")
+def thugfight(YHP, YPW, YDF, EHP, EPW, EDF):
+    EnemyHP = EHP
+    EnemyPOWER = EPW
+    EnemyDEFENSE = EDF
+    print("/Battle Start!/")
+    while EHP > 0:
+        print("Enemy health:",EHP)
+        print(f'HP: {YHP}, PWR: {YPW}, DEF: {YDF}')
+        print("/How should you engage?/")
+        print("[A]ttack", "[D]efend")
+        action = input()
+        if action == "A":
+            EHP = EHP - YPW
+        else:
+            print("Focus!")
+    print("You won!")
+    return YHP        
+
+def nestencounter():
+    return
+
+def thugencounter(H, P, D):
+    print("/You walk out of the Nest, with only gray-smoke buildings and a heavy mist above you drowing your view of the sky/")
+    print("/Then suddenly, you feel footsteps behind your back/")
+    print("/You swiftly turn to the direction of the sound/")
+    print("/There is a lone, shady figure in the road, he seems dangerous.../")
+    print("/Should you: [F]ight?/")
+    YH, YP, YD = H, P , D
+    while True:
+        choice = input()
+        if choice == "F":
+            path = thugfight(YH, YP, YD, 20, 1, 2)
+            return
+        if choice != "F":
+            print("Try again")
+    return H
