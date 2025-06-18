@@ -13,6 +13,6 @@ Pretending to add:
 - Skills added to your loadout in intro
 - Guard system
 - Rewards (money/items/etcetera)
-# Note to self:
+/Note to self/
 Git terminal steps...
 1. 
