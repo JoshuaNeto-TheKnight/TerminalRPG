@@ -1,5 +1,5 @@
 # TerminalRPG
-A little side project to work on while I work things out, don't expect a AAA quality code
+A little side project to work on while I work things out in University, don't expect a AAA quality code
 
 Currently has:
 - A opening sequence
@@ -13,6 +13,13 @@ Pretending to add:
 - Skills added to your loadout in intro
 - Guard system
 - Rewards (money/items/etcetera)
+
 /Note to self/
 Git terminal steps...
-1. 
+- I. git add (arquivo)
+- II. git commit -m "{mensagem de novo commit}"
+- III. git push origin {nome da branch}
+Install git...
+- I. git config --global user.name "{nome}"
+- II. git config --global user.email "{email do github}"
+- III. git clone {code <> no github}
