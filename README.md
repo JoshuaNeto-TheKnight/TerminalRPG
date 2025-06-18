@@ -7,9 +7,12 @@ Currently has:
 - Choice based status up
 - Encounter system
 - Fight mechanic (W.I.P focus)
+- Enemy actually fighting back
 
 Pretending to add:
 - Skills added to your loadout in intro
 - Guard system
-- Enemy actually fighting back
 - Rewards (money/items/etcetera)
+# Note to self:
+Git terminal steps...
+1. 
