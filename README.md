@@ -14,6 +14,34 @@ Pretending to add:
 - Guard system
 - Rewards (money/items/etcetera)
 
+# Kept you waiting huh?
+I've been quite inactive as I have been practically been incapacitated by the responsibilities of life and no computer at all.
+Its been quite rough for me but why cares, you're here to see the code.
+I will be in a bit of a slow pace but hopefully I can do more stuff.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /Note to self/
 Git terminal steps...
 - I. git add (arquivo)
