@@ -95,27 +95,42 @@ def pathchoices(choice1, choice2):
             path = choice2
             break
 
-def dmgform(PWR):
-    DMG = random.randrange(1,PWR)
-    DMG = int(DMG)
+def dmgform(PWR, AGI, EDEF):
+    AGI = random.randint(0, AGI)
+    DMG = (PWR * (1 + AGI)) - EDEF
+    if DMG == 0:
+        DMG += 1
+    DMG = int(DMG)    
     return DMG
 
-def thugfight(YHP, YPW, YDF, EHP, EPW, EDF):
+def thugfight(PlayerName, YHP, YPW, YDF, EHP, EPW, EDF, EnemyName):
     EnemyHP = EHP
     EnemyPOWER = EPW
     EnemyDEFENSE = EDF
     print("/Battle Start!/")
-    while EHP > 0:
-        print("Enemy health:",EHP)
-        print(f'HP: {YHP}, PWR: {YPW}, DEF: {YDF}')
-        print("/How should you engage?/")
+    while EHP > 0 or YHP > 0:
+        print(EnemyName, "Enemy health:",EHP)
+        print(f'Your statuses: HP: {YHP}, PWR: {YPW}, DEF: {YDF}')
+        print(f"/How should {PlayerName} engage?/")
         print("[A]ttack", "[D]efend")
         action = input()
-        if action == "A":
-            EHP = EHP - YPW
-        else:
-            print("Focus!")
-    print("You won!")
+        while True:
+            if action == "A":
+                EHP = EHP - DMG(YPW, YDF, EDF)
+                break
+            else:
+                print("Focus!")
+       enemychoice = random.randint(1,3)
+       if enemychoice == 1:
+           YHP = YHP - EPW
+       elif enemychoice == 2:
+           EHP = EHP + EDF
+       elif enemychoice == 3:
+           print('Turn skip')
+    if YHP > 0:
+        print("You won!")
+    if YHP <= 0:
+        print("You lost...")
     return YHP        
 
 def nestencounter():
