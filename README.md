@@ -1,6 +1,5 @@
 # TerminalRPG
 A little side project to work on while I work things out in University, don't expect a AAA quality code
-
 # PROGRESS IS BEING MADE!!
 Currently testing the defense system to implement it in the game, it will take another... (6.. 7.. 20..) 5 coding hours to finish it ! (or so i believe)
 So the battle simulator will soon be ready to go!
