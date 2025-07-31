@@ -1,4 +1,5 @@
 import random
+import Defensefunctions
 
 def powerdice():
     Stats = []
@@ -85,13 +86,13 @@ def powerdice():
             print('[P]assive [N]eutral [A]ctive')
             Choice = input()
             if Choice == 'P':
-                defensive = Guard
+                defensive = Defensefunctions.Guard
                 break
             elif Choice == 'N':
-                defensive = Counter
+                defensive = Defensefunctions.Counter
                 break
             elif Choice == 'A':
-                defensive = Evade
+                defensive = Defensefunctions.Evade
                 break
             else:
                 print('Please, answer with the options in mind.')
