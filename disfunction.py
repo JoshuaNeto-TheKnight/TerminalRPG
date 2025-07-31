@@ -1,71 +1,114 @@
 import random
 
-def light():
-    print("/You find yourself in a void so dark, it burns your eyes, then, almost in an instant, a spark starts talking to you.../")
-    print("I will be your guiding light, even in your lowest of lows, I shall shelter you.")
-    print("Do you understand?")
-    print("/Answer the prompts with any highlighted letters/", "[Y]es", "[N]o")
-    choice = input()
-    print("Good... Now... Tell about yourself:")
-
 def powerdice():
-    HP = 50
-    PWR = 2
-    DEF = 1
-    print("Are you a strong person?")
-    print("[Y]es" , "[N]o")
-    while True:
-        choice = input()
-        if choice == "Y":
-            PWR = PWR + 1
-            print("You feel more powerful...")
-            break
-        elif choice == "N":
-            HP = HP + 5
-            print("You feel more healthy...")
-            break
-        else:
-            print("I didn't hear it right... Could you reinstate it?")
-    print("Do you think of yourself as a fast person?")
-    print("[Y]es" , "[N]o")
-    while True:
-        choice = input()
-        if choice == "Y":
-            DEF = DEF + 1
-            print("You feel more dexterous")
-            break
-        elif choice == "N":
-            HP = HP + 5
-            print("You feel more healthy")
-            break
-        else:
-            print("I didn't hear it right... Could you reinstate it?")
-    print("Are you a persistant person?")
-    print("[Y]es" , "[N]o")
-    while True:
-        choice = input()
-        if choice == "Y":
-            DEF = DEF + 1
-            print("You feel more dexterous")
-            break
-        elif choice == "N":
-            HP = HP + 5
-            print("You feel more healthy")
-            break
-        else:
-            print("I didn't hear it right... Could you reinstate it?")
-                
-    return HP, PWR, DEF
-    
+    Stats = []
+    ChoiceFinale = "N"
+    Choice = 0
+    while ChoiceFinale == "N":
+        pity = 0
+        while True:
+            print("Tell me, do you often find yourself as a strong-willed person with a thick skinned tolerance?")
+            print("[Y]es [N]o")
+            HP = 0
+            Choice = input()
+            if Choice == "Y":
+                HP = 60
+                break
+            elif Choice == "N":
+                HP = 50
+                pity += 1
+                break
+            else:
+                print("Let us try this again.")
+        while True:
+            print("Are you a brave person that will soldier on regardless of your weaknesses?")
+            print("[Y]es [N]o")
+            DEF = 0
+            Choice = input()
+            if Choice == "Y":
+                DEF = 2
+                break
+            elif Choice == "N":
+                DEF = 1
+                pity += 1
+                break
+            else:
+                print("Let us try this again.")
+        while True:
+            print("Do you find yourself as a righteous one?")
+            print("[Y]es [N]o")
+            PWR = 0
+            Choice = input()
+            if Choice == "Y":
+                PWR = 5
+                break
+            elif Choice == "N":
+                PWR = 3
+                pity += 1
+                break
+            else:
+                print("Let us try this again.")
+        while True:        
+            print("Are you a resilient person? Being more stubborn than you can backup with?")
+            print("[Y]es [N]o")
+            DEF = 0
+            Choice = input()
+            if Choice == "Y":
+                DEF = 2
+                break
+            elif Choice == "N":
+                DEF = 1
+                pity += 1
+                break
+            else:
+                print("Let us try this again.")
+        print("Now, for an odd question...")
+        while True:
+            print("Which of these dinning utensils is your go-to?")
+            print("[S]poon [F]ork [K]nife")
+            Choice = input()
+            if Choice == "S":
+                weaknesses = [0.5, 1,0, 2.0]
+                break
+            elif Choice == 'F':
+                weaknesses = [2.0, 0.5, 1.0]
+                break
+            elif Choice == 'K':
+                weaknesses = [1.0, 2.0, 0.5]
+                break 
+            else:
+                print('Respond within the options asked...')
+        print('Let me throw another oddball...')
+        defensive
+        while True:
+            print('What type of action fits with your person?')
+            print('[P]assive [N]eutral [A]ctive')
+            Choice = input()
+            if Choice == 'P':
+                defensive = Guard
+                break
+            elif Choice == 'N':
+                defensive = Counter
+                break
+            elif Choice == 'A':
+                defensive = Evade
+                break
+            else:
+                print('Please, answer with the options in mind.')
+        print('Your form takes a new shape ...')
+        Stats = [HP, DEF, PWR, defensive,weaknesses]
+
+    return Stats
+
 def statuscheck(H, P, D):
     print(H)
     print(P)
     print(D)
 
 def welcome():
-    print("Welcome to The City.")
+    print("Welcome to The City...")
     print("Where you Face The Fear, and Build The Future...?")
-    print("Argh, now thats unimportant. Now, what's your name, fresh blood?")
+    print("Argh, thats unimportant. Now, what's your name, fresh blood?")
     name = input("Insert your nickname: ")
     print("Ah, right... you seem familiar with these streets, right?")
     print("[Y]es.", "[N]o.")
@@ -76,6 +119,7 @@ def welcome():
             break
         elif choice == "N":
             print("You have a screw loose? Heh, well...")
+            print("Here, take this then.")
             break
         else:
             print("Speak with your brain, not ya tounge!")
@@ -98,45 +142,45 @@ def pathchoices(choice1, choice2):
 def dmgform(PWR, AGI, EDEF):
     AGI = random.randint(0, AGI)
     DMG = (PWR * (1 + AGI)) - EDEF
-    if DMG == 0:
-        DMG += 1
-    DMG = int(DMG)    
+    DMG = int(DMG)
     return DMG
+    
 
 def thugfight(PlayerName, YHP, YPW, YDF, EHP, EPW, EDF, EnemyName):
     EnemyHP = EHP
     EnemyPOWER = EPW
     EnemyDEFENSE = EDF
+    DMG = dmgform(YPW, YDF, EDF)
     print("/Battle Start!/")
-    while EHP > 0 or YHP > 0:
-        print(EnemyName, "Enemy health:",EHP)
-        print(f'Your statuses: HP: {YHP}, PWR: {YPW}, DEF: {YDF}')
+    while EHP > 0:
+        print(EnemyName,"health:",EHP)
+        print(f'HP: {YHP}, PWR: {YPW}, DEF: {YDF}')
         print(f"/How should {PlayerName} engage?/")
         print("[A]ttack", "[D]efend")
-        action = input()
         while True:
+            action = input()
             if action == "A":
-                EHP = EHP - DMG(YPW, YDF, EDF)
+                EHP = EHP - DMG
                 break
             else:
                 print("Focus!")
-       enemychoice = random.randint(1,3)
-       if enemychoice == 1:
-           YHP = YHP - EPW
-       elif enemychoice == 2:
-           EHP = EHP + EDF
-       elif enemychoice == 3:
-           print('Turn skip')
-    if YHP > 0:
-        print("You won!")
-    if YHP <= 0:
-        print("You lost...")
+        enemychoice = random.randrange(1,3)
+        if enemychoice == 1:
+            print("He produces a knife from his pocket and swings at you!")
+            YHP = YHP - EPW
+        elif enemychoice == 2:
+            print("The thug rests for a bit")
+            EHP = EHP + EDF
+        elif enemychoice == 3:
+            print("The thug continues to glare at you")
+            
+    print("You won!")
     return YHP        
 
 def nestencounter():
     return
 
-def thugencounter(H, P, D):
+def thugencounter(name, H, P, D):
     print("/You walk out of the Nest, with only gray-smoke buildings and a heavy mist above you drowing your view of the sky/")
     print("/Then suddenly, you feel footsteps behind your back/")
     print("/You swiftly turn to the direction of the sound/")
@@ -146,7 +190,7 @@ def thugencounter(H, P, D):
     while True:
         choice = input()
         if choice == "F":
-            path = thugfight(YH, YP, YD, 20, 1, 2)
+            path = thugfight(name,YH, YP, YD, 20, 1, 2, "Thug")
             return
         if choice != "F":
             print("Try again")
