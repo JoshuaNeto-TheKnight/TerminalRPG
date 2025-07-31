@@ -5,7 +5,25 @@ Currently testing the defense system to implement it in the game, it will take a
 So the battle simulator will soon be ready to go!
 Thank you for your patience ghost specatators
 
+<<<<<<< HEAD
 
+=======
+Currently has:
+- A opening sequence
+- Choices introduction
+- Choice based status up
+- Encounter system
+- Fight mechanic (W.I.P focus)
+- Enemy actually fighting back
+
+Pretending to add:
+- Skills added to your loadout in intro
+- Guard system
+- Rewards (money/items/etcetera)
+
+# Status update
+I really underestimated the scope but I'm back with my machine reeady to go, soon enough there will be some updates!
+>>>>>>> 7725036b95ea342204ab7a73f1f3743c9ed99d1e
 
 
 
