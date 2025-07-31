@@ -1,4 +1,4 @@
-import disfunction
+import Rawfunctions
 import random
 print("/You find yourself in a void so dark, it burns your eyes, then, almost in an instant, a spark starts talking to you.../")
 print("I will be your guiding light, even in your lowest of lows, I shall shelter you.")
